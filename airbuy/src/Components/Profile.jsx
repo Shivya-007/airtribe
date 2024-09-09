@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(appFirebase);
 
-function Profile() {
+const Profile = () => {
     const [user, setUser] = useState(null);
     const [image, setImage] = useState("");
     const navigate = useNavigate();

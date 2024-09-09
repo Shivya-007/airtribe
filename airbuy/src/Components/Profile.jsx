@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-//import "./profile.css";
+import "./profile.css";
 import appFirebase from "../Firebase";
 import Default from "../assets/images/default.png";
 import USER from "../assets/images/user.png";

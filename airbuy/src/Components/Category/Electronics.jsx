@@ -9,6 +9,7 @@ import Footer from "../Footer";
 import { NavLink } from "react-router-dom";
 import Spinner from "../Spinner";
 import LowerNav from "../LowerNav";
+import axios from "axios";
 
 const Electronics = () => {
 
@@ -21,12 +22,13 @@ const Electronics = () => {
 
     useEffect(() => {
         const GetProducts = async () => {
-            const data = await fetch(
+            const data = await axios.get(
                 "https://fakestoreapi.com/products/category/electronics"
-            );
-            const new_data = await data.json();
-            setLoading(false);
-            setAllProducts(new_data);
+            ).then(res => {
+                const new_data = res.data;
+                setLoading(false);
+                setAllProducts(new_data)
+            });
             // Add a review number property to each item object
             const productsWithReviewNumber = new_data.map((item) => ({
                 ...item,

@@ -144,13 +144,13 @@ const Signin = () => {
                                 <button onClick={LogInUser} className="signin-btn">
                                     Sign in
                                 </button>
-                                <div className="extra-buttons">
+                                {/*<div className="extra-buttons">
                                     <p className="or">&#x2015; Or &#x2015;</p>
                                     <button onClick={GoogleAuth} className="google">
                                         <p>Sign in with</p>
                                         <img src={google} className="google-img" />
                                     </button>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </div>

@@ -18,12 +18,13 @@ const Deals = () => {
 
     const ListItems = useSelector((state) => state.ItemsAdded.ListItems);
     const dispatch = useDispatch();
+    let new_data = null;
 
     useEffect(() => {
         const GetProducts = async () => {
             const data = await axios.get("https://fakestoreapi.com/products")
                 .then(res => {
-                    const new_data = res.data;
+                    new_data = res.data;
                     setLoading(false);
                     setAllProducts(new_data);
                 });

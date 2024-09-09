@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-//import "../deals.css";
+import "../deals.css";
 import Add from "./img/heart.png";
 import Added from "./img/red-heart.png";
 import rating from "./img/rating.png";
@@ -8,7 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Footer from "../Footer";
 import Spinner from "../Spinner";
 import { NavLink } from "react-router-dom";
-import LowerNav from '../LowerNav'
+import LowerNav from '../LowerNav';
+import axios from "axios";
 
 const Men = () => {
     const [AllProducts, setAllProducts] = useState([]);
@@ -20,12 +21,13 @@ const Men = () => {
 
     useEffect(() => {
         const GetProducts = async () => {
-            const data = await fetch(
+            const data = await axios.get(
                 "https://fakestoreapi.com/products/category/men's%20clothing"
-            );
-            const new_data = await data.json();
-            setLoading(false);
-            setAllProducts(new_data);
+            ).then(res => {
+                const new_data = res.data;
+                setLoading(false);
+                setAllProducts(new_data)
+            });
             // Add a review number property to each item object
             const productsWithReviewNumber = new_data.map((item) => ({
                 ...item,

@@ -7,10 +7,11 @@ import orders from "../assets/images/orders.png";
 import Default from "../assets/images/default.png";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-//import "./navbar.css";
+import "./navbar.css";
 import appFirebase from "../Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import swal from "sweetalert";
+import axios from "axios";
 
 const auth = getAuth(appFirebase);
 
@@ -45,9 +46,11 @@ const LowerNav = () => {
         });
 
         const GetProducts = async () => {
-            const data = await fetch("https://fakestoreapi.com/products");
-            const new_data = await data.json();
-            setProducts(new_data);
+            const data = await axios.get("https://fakestoreapi.com/products")
+                .then(res => {
+                    const new_data = res.data;
+                    setProducts(new_data)
+                });
         };
 
         GetProducts();

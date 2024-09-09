@@ -192,7 +192,7 @@ const Cart = () => {
                             <p>
                                 Congrats! You're eligible for <b>Free Delivery</b>.
                                 <p style={{ marginTop: "5px", marginBottom: "0px" }}>
-                                    Use code <b>SHUBHO20</b> for 20% discount.
+                                    Use code <b>SARA20</b> for 20% discount.
                                 </p>
                             </p>
                         </div>
@@ -206,11 +206,11 @@ const Cart = () => {
                             />
                             <button
                                 onClick={() => {
-                                    if (promocode === "SHUBHO20") {
+                                    if (promocode === "SARA20") {
                                         TotalValue(totalPrice1);
                                         setdiscountCode(promocode);
                                         setCorrectCode(true);
-                                    } else if (promocode !== "SHUBHO20") {
+                                    } else if (promocode !== "SARA20") {
                                         setdiscountCode(promocode);
                                         TotalValue(totalPrice2);
                                         setCorrectCode(false);

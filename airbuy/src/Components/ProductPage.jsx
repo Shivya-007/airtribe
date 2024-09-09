@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-//import "./productpage.css";
+import "./productpage.css";
 import Rating from "../assets/images/rating.png";
 import added from "../assets/images/added.png";
 import add from "../assets/images/not-added.png";

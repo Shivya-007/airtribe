@@ -229,7 +229,7 @@ const Cart = () => {
                             }
                             className="applied"
                         >
-                            <b>SHUBHO20</b> has been applied!
+                            <b>SARA20</b> has been applied!
                         </p>
                         <p
                             style={

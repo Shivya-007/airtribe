@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Spinner from "./Spinner";
 import LowerNav from "./LowerNav";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Deals = () => {
     const [AllProducts, setAllProducts] = useState([]);
@@ -20,10 +21,12 @@ const Deals = () => {
 
     useEffect(() => {
         const GetProducts = async () => {
-            const data = await fetch("https://fakestoreapi.com/products");
-            const new_data = await data.json();
-            setLoading(false);
-            setAllProducts(new_data);
+            const data = await axios.get("https://fakestoreapi.com/products")
+                .then(res => {
+                    const new_data = res.data;
+                    setLoading(false);
+                    setAllProducts(new_data);
+                });
             // Add a review number property to each item object
             const productsWithReviewNumber = new_data.map((item) => ({
                 ...item,

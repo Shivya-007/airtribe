@@ -10,6 +10,7 @@ import { AddToCart, RemoveCart } from "../action/Cart";
 import { useSelector, useDispatch } from "react-redux";
 import VanillaTilt from "vanilla-tilt";
 import LowerNav from "./LowerNav";
+import axios from "axios";
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -28,9 +29,11 @@ const ProductPage = () => {
 
     useEffect(() => {
         const getProducts = async () => {
-            const data = await fetch(`https://fakestoreapi.com/products/${id}`);
-            const new_data = await data.json();
-            setProduct(new_data);
+            const data = await axios.get(`https://fakestoreapi.com/products/${id}`)
+                .then(res => {
+                    const new_data = res.data;
+                    setProduct(new_data);
+                });
         };
 
         const randomNumber = Math.floor(Math.random() * 81) + 20;
